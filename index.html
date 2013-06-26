@@ -27,6 +27,10 @@
       {
         margin-top: -3px;
       }
+
+      #publishedwork , #projects , #hobbies {
+        min-height: 550px; 
+      }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -48,13 +52,16 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- hack the scroll positioning so navbar doesn't obscure link -->
     <script>
-      var shiftWindow = function() { scrollBy(0, -60) };
-      window.addEventListener("hashchange", shiftWindow);
+      var shiftWindow = function() { scrollBy(0, -40) };
+
+      $(document).ready(function() {
+          window.addEventListener("hashchange", shiftWindow);
+        });
     </script>
 
   </head>
 
-  <body data-spy="scroll" data-target=".navbar" data-offset="60">
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -83,7 +90,7 @@
 
     <div class="container">
 
-      <div class="row">
+      <div class="row" id="about">
         <div class="span3"><img class="img-polaroid" src="img/imperial-photo-low.jpg"/></div>
         <div class="span9">
           <h1>Dan Liew</h1> 
@@ -121,27 +128,62 @@
         </div>
       </div>
       <hr/>
-        <div class="row" id="about">
-          <h1>About</h1>
-          <p> I am a first year PhD student studying at Imperial College, London under the supervision of Dr. Alastair Donaldson and Dr. Cristian Cadar.</p>
+        <div class="row">
+          <div class="span12">
+            <h1>About</h1>
+            <p> I am a first year PhD student studying at Imperial College, London under the supervision of 
+            <a href="http://www.doc.ic.ac.uk/~afd/">Dr. Alastair Donaldson</a> of the <a href="http://multicore.doc.ic.ac.uk/">Multicore programming group</a> and 
+            <a href="http://www.doc.ic.ac.uk/~cristic/">Dr. Cristian Cadar</a> of the <a href="http://srg.doc.ic.ac.uk/">Software reliability group</a>.
+            My work is generously funded by an EPSRC CASE studentship in collaboration with <a href="http://www.arm.com/">ARM</a>. 
+            </p>
+           
+            <p> I am currently interested in improving the reliability of <a href="http://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">GPGPU</a> 
+               programming using static analysis and symbolic execution techniques.
+            </p>
 
-          </p>
+            <p> I received a MSc in Computing from Imperial College in 2012 during which I contributed to <a href="http://klee.llvm.org/">KLEE</a> project. Prior to this
+              I did a BSc in Physics with Industrial Experience at the University of Bristol. During this I did a 1 year industrial placement at <a href="http://www.sle.sharp.co.uk/">SHARP laboratories of Europe (Oxford)</a>.
+            </p>
+          </div>
         </div>
-      <div class="row" >
-        <h1 id="publishedwork">Published Work</h1>
-        <p>None so far :( </p>
-
-
+      <div class="row" id="publishedwork">
+        <div class="span12">
+          <h1>Published Work</h1>
+          <p>Nothing yet. </p>
+          <div id="big_space">
+          </div>
+        </div>
       </div>
 
       <div class="row" id="projects">
-        <h1>Projects</h1>
-
+        <div class="span12">
+          <h1>Projects</h1>
+         <p> Here are a list of projects I have contributed to
+         </p>
+          <ul>
+            <li><a href="http://klee.llvm.org">KLEE</a> - A symbolic virtual machine built on top of LLVM</li>
+            <li><a href="http://multicore.doc.ic.ac.uk/tools/GPUVerify/">GPUVerify</a> - A static analysis tool for proving race, barrier divergence and assertion failure freedom of OpenCL and CUDA kernels</li>
+            <li><a href="https://github.com/delcypher/klee/tree/smtlib">KLEE-SMTLIB</a> - A fork of KLEE that supports using SMTLIBv2 solvers</li>
+            <li><a href="https://github.com/delcypher/nsolv">NSolv</a> - A front end for tools that use SMTLIBv2 solvers that can be used to launch multiple solvers in parallel</li>
+            <li><a href="https://github.com/delcypher/simi-qt">SIMI-Qt</a> - A GUI application (using Qt toolkit) for performing image segmentation on medical MRI images</li>
+            <li><a href="https://github.com/arfoll/unrarall">unrarall</a> - A small bash script to extract multiple rar files and clean up unwanted files from extraction</li>
+            <li><a href="https://github.com/delcypher/iscp-0.2">iscp</a> - A small bash script the automates downloading files from a server using ssh and rsync</li>
+            <li><a href="http://llvm.org">LLVM</a> - The awesome compiler framework</li>
+          </ul>
+        </div>
       </div>
 
       <div class="row" id="hobbies">
-        <h1>Hobbies</h1>
-
+        <div class="span12">
+        <h1>Hobbies/Activities</h1>
+        <p>My Hobbies/Activities include...</p>
+        <dl>
+          <dt>Trials unicycling</dt><dd>Yes it's a real sport! See <a href="https://www.youtube.com/watch?v=wHVQ8GLEq-w">this</a> if you don't believe me!</dd>
+          <dt>UK Union of Unicyclists</dt><dd> I am the secretary for the <a href="http://www.unicycle.org.uk">Union of UK Unicyclists</a></dd>
+          <dt>Programming</dt><dd>I wouldn't be a very good computer science student if I didn't like programming! My favourite language is Python, but I also dable in Bash, C++ and Java.</dd>
+          <dt>GNU/Linux stuff</dt><dd>Ever since I tried out GNU/Linux distros I've been hooked. I love learning cool things you can do with them. My current distro of choice is <a href="http://www.archlinux.org">Arch Linux</a></dd>
+        </dl>
+        </div>
       </div>
     
     </div> <!-- /container -->
@@ -151,25 +193,6 @@
       <p>This site is powered by <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></p>
       <p><a href="https://github.com/delcypher/phd-imperial-website">See the source</a></p>
     </div>
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <!--
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
-    -->
-
   </body>
 </html>
 
