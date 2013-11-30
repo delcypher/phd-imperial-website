@@ -1,0 +1,32 @@
+mode: development
+media_root: assets # Relative path from content folder.
+media_url: assets # URL where the media files are served from.
+plugins:
+    - hyde.ext.plugins.meta.MetaPlugin
+    - hyde.ext.plugins.meta.AutoExtendPlugin
+context:
+    data:
+        studentName: Dan Liew
+        position: PhD Student
+        university: Imperial College London
+        menu:
+            -
+                name: About
+                description: Home Page
+                icon: icon-question-sign
+                url: index.html
+            -
+                name: Published Work
+                description: A list of my publications
+                icon: icon-file
+                url: published.html
+            -
+                name: Projects
+                description: A list of projects that I've contributed to
+                icon: icon-briefcase
+                url: projects.html
+            -
+                name: Hobbies
+                description: A list of my hobbies
+                icon: icon-star
+                url: hobbies.html

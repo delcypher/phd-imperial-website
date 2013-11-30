@@ -1,0 +1,3 @@
+{% macro getPageName() %}
+{% for item in menu if ( resource.url == site.content.resource_from_relative_path(item.url).url) %}{{item.name}}{% endfor %}
+{%- endmacro %}

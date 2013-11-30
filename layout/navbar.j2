@@ -1,0 +1,27 @@
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <!-- Show three bars in the navbar button -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">{{ studentName }}</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              {# Loop over context vars defined in site.yaml to generate the menu #}
+              {% set pageName = None %}
+              {% for item in menu %}
+                {# Work out if this is the active page #}
+                {% set active = (resource.url == site.content.resource_from_relative_path(item.url).url) -%}
+                <li {% if active -%}class="active" {%- endif -%} >
+                  {% set pageName = item.name if active else "yyy" %}
+                  <a href="{{ item.url }}"><i class="{{ item.icon }}"></i> {{ item.name }}</a></li>
+                <li class="divider-vertical"></li>
+              {% endfor %}
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>

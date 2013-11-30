@@ -1,0 +1,5 @@
+*.swp
+deploy/
+
+# Hyde dependency files
+.hyde_deps
