@@ -1,10 +1,10 @@
-Personal PHD Website
+Personal PhD Website
 ====================
 
 This is the source code for [Dan Liew's Imperial Homepage](http://www.doc.ic.ac.uk/~dsl11).
 
 It is powered using [Twitter Bootstrap](http://twitter.github.io/bootstrap/) and is built using
-[Hyde](https://github.com/hyde/hyde)
+[Hyde](https://github.com/hyde/hyde).
 
 
 Generating the pages
@@ -19,8 +19,11 @@ Install Hyde
 Installing Hyde is pretty easy although it doesn't seem to work right with Python 3 right now.
 
 ```
-$ pip2 install hyde # pip2 is the version of pip for python 2.x
+$ pip2 install hyde
 ```
+
+Note `pip2` is pip for python 2.x . If you don't have python 3 on your system that command will
+probably just be `pip`.
 
 Doing development
 -----------------
@@ -38,6 +41,6 @@ How to deploy
 --------------
 
 ```
-$ hyde --sitepath /path/to/this/repository gen -d /path/to/deploy/folder
+$ hyde --sitepath /path/to/this/repository gen --deploy-path /path/to/deploy/folder
 ```
 
