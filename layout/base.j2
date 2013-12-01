@@ -19,13 +19,34 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
 
+      /* Sticky footer styles */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
 
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -120px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 120px;
+      }
+      
       footer {
         background: #f5f5f5;
         border-top: 1px solid rgb(229, 229, 229);
-        margin-top: 60px;
         padding: 20px 0px;
         text-align: center;
+        height: 120px;
       }
 
 
@@ -56,58 +77,61 @@
   </head>
 
   <body>
-  {% include "navbar.j2" %}
+    <div id="wrap">
+      {% include "navbar.j2" %}
 
-    <div class="container">
+      <div class="container">
 
-      <div class="row" id="about">
-        <div class="span3"><img class="img-polaroid" src="{{ media_url('img/imperial-photo-low.jpg') }}"/></div>
-        <div class="span9">
-          <h1>{{ studentName }}</h1> 
+        <div class="row" id="about">
+          <div class="span3"><img class="img-polaroid" src="{{ media_url('img/imperial-photo-low.jpg') }}"/></div>
+          <div class="span9">
+            <h1>{{ studentName }}</h1>
 
-          <table class="table">
-            <tr>
-              <td> <i class="icon-envelope"></i> <b>Email</b> </td>
-              <td> <code>daniel.liew_ZZ@imperial.ac.uk (remove the _ZZ)</code> </td>
-            </tr>
-            <tr>
-              <td> <img class="custom-icon" src="{{ media_url('img/github.png') }}"/> <b>GitHub</b></td>
-              <td><a href="https://github.com/delcypher/">delcypher</a> </td>
-            </tr>
-            <tr>
-              <td> <img class="custom-icon" src="{{ media_url('img/twitter-icon.png') }}"/> <b>Twitter</b></td>
-              <td><a href="https://twitter.com/dan_liew">@dan_liew</a></td>
-            </tr>
-            <tr>
-              <td> <img class="custom-icon" src="{{ media_url('img/linkedin-icon.png') }}"/> <b>LinkedIn</b></td>
-              <td> <a href="http://uk.linkedin.com/in/danliew">Dan Liew</a></td>
-            </tr>
-            <tr>
-              <td><b><i class="icon-envelope"></i> Address</b></td>
-              <td>
-                <address>
-                  Imperial College London<br/>
-                  Department of Computing<br/>
-                  South Kensington Campus<br/>
-                  London SW7 2AZ<br/>
-                  United Kingdom<br/>
-                </address>
-              </td>
-            </tr>
-          </table>
+            <table class="table">
+              <tr>
+                <td> <i class="icon-envelope"></i> <b>Email</b> </td>
+                <td> <code>daniel.liew_ZZ@imperial.ac.uk (remove the _ZZ)</code> </td>
+              </tr>
+              <tr>
+                <td> <img class="custom-icon" src="{{ media_url('img/github.png') }}"/> <b>GitHub</b></td>
+                <td><a href="https://github.com/delcypher/">delcypher</a> </td>
+              </tr>
+              <tr>
+                <td> <img class="custom-icon" src="{{ media_url('img/twitter-icon.png') }}"/> <b>Twitter</b></td>
+                <td><a href="https://twitter.com/dan_liew">@dan_liew</a></td>
+              </tr>
+              <tr>
+                <td> <img class="custom-icon" src="{{ media_url('img/linkedin-icon.png') }}"/> <b>LinkedIn</b></td>
+                <td> <a href="http://uk.linkedin.com/in/danliew">Dan Liew</a></td>
+              </tr>
+              <tr>
+                <td><b><i class="icon-envelope"></i> Address</b></td>
+                <td>
+                  <address>
+                    Imperial College London<br/>
+                    Department of Computing<br/>
+                    South Kensington Campus<br/>
+                    London SW7 2AZ<br/>
+                    United Kingdom<br/>
+                  </address>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
-      <hr/>
+        <hr/>
 
-      <div class="row">
-        <div class="span12">
-          <h1>{{ macros.getPageName() }}</h1>
-          {# Put content through markdown filter #}
-          {% filter markdown %}{% block content %}No content yet. Check back soon. {% endblock %}{% endfilter %}
+        <div class="row">
+          <div class="span12">
+            <h1>{{ macros.getPageName() }}</h1>
+            {# Put content through markdown filter #}
+            {% filter markdown %}{% block content %}No content yet. Check back soon. {% endblock %}{% endfilter %}
+          </div>
         </div>
-      </div>
 
-    </div> <!-- container -->
+      </div> <!-- container -->
+      <div id="push"></div>
+    </div> <!-- wrap -->
   {% include "footer.j2" %}
   </body>
 </html>
