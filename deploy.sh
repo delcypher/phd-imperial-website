@@ -14,9 +14,11 @@ for p in ${DEPLOY_PATHS[*]}; do
     if [ ! -d "${p}" ]; then
         echo "Deploy path '${p}' does not exist."
         continue
+    else
+        DP="${p}"
+        break
     fi
 
-    DP="${p}"
 done
 
 if [ -z ${DP} ]; then
