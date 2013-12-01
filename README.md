@@ -6,6 +6,7 @@ This is the source code for [Dan Liew's Imperial Homepage](http://www.doc.ic.ac.
 It is powered using [Twitter Bootstrap](http://twitter.github.io/bootstrap/) and is built using
 [Hyde](https://github.com/hyde/hyde).
 
+The licenses for the code used in this project can be found in ``LICENSES``.
 
 Generating the pages
 ====================
