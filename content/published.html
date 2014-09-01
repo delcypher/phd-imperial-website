@@ -21,7 +21,7 @@ _{{venue}}_
             Download
         </button>
     </a>
-    <a title="Search" href="http://scholar.google.co.uk/scholar?hl=en&q={{name}}">
+    <a title="Search" href="http://scholar.google.co.uk/scholar?hl=en&q={{name | escape | replace(' ','+')}}">
         <button class="btn"><i class="icon-search"></i>
             Search
         </button>
