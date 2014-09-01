@@ -5,7 +5,7 @@ extends: base.j2
 {# Handy macro for a publication #}
 {% macro publication(name, authors, venue, abstract_url, download_url) -%}
 
-## {{name}}
+#### {{name}}
 *{{authors}}*
 
 
@@ -27,9 +27,12 @@ _{{venue}}_
         </button>
     </a>
 </div>
+<hr/>
 {%- endmacro %}
 
 {% block content %}
+
+### Peer-Reviewed Conferences and Workshops
 
 {{ publication(name='Engineering a Static Verification Tool for GPU Kernels',
                authors='Ethel Bardsley, Adam Betts, Nathan Chong, Peter Collingbourne, Pantazis Deligiannis, Alastair F. Donaldson, Jeroen Ketema, Daniel Liew, Shaz Qadeer',
@@ -39,4 +42,16 @@ _{{venue}}_
               )
 }}
 
+
+### Posters
+
+#### Finding data races in OpenCL kernels
+
+Presented at the Department of Computing (Imperial College) Google poster competition 2014. It won first prize in the second year PhD student category.
+
+<a title="Download" href="assets/pdf/2014-dan-liew-google-poster-competition.pdf">
+    <button class="btn"><i class="icon-arrow-down"></i>
+        Download
+    </button>
+</a>
 {% endblock %}
