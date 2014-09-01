@@ -1,30 +1,42 @@
 ---
 extends: base.j2
 ---
-{% block content %}
 
-## Engineering a Static Verification Tool for GPU Kernels
-**Ethel Bardsley, Adam Betts, Nathan Chong, Peter Collingbourne, Pantazis Deligiannis, Alastair F. Donaldson, Jeroen Ketema, Daniel Liew, Shaz Qadeer**
+{# Handy macro for a publication #}
+{% macro publication(name, authors, venue, abstract_url, download_url) -%}
+
+## {{name}}
+*{{authors}}*
 
 
-_CAV 2014_
-<!-- FIXME: factor this into a template -->
+_{{venue}}_
 <div class="btn-group">
-    <a title="View abstract" href="http://link.springer.com/chapter/10.1007%2F978-3-319-08867-9_15">
+    <a title="View abstract" href="{{abstract_url}}">
         <button class="btn"><i class="icon-file"></i>
             Abstract
         </button>
     </a>
-    <a title="Download" href="http://multicore.doc.ic.ac.uk/tools/GPUVerify/CAV2014/downloads/paper.pdf">
+    <a title="Download" href="{{download_url}}">
         <button class="btn"><i class="icon-arrow-down"></i>
             Download
         </button>
     </a>
-    <a title="Search" href="http://scholar.google.co.uk/scholar?hl=en&q=Engineering+a+Static+Verification+Tool+for+GPU+Kernels">
+    <a title="Search" href="http://scholar.google.co.uk/scholar?hl=en&q={{name}}">
         <button class="btn"><i class="icon-search"></i>
             Search
         </button>
     </a>
 </div>
+{%- endmacro %}
+
+{% block content %}
+
+{{ publication(name='Engineering a Static Verification Tool for GPU Kernels',
+               authors='Ethel Bardsley, Adam Betts, Nathan Chong, Peter Collingbourne, Pantazis Deligiannis, Alastair F. Donaldson, Jeroen Ketema, Daniel Liew, Shaz Qadeer',
+               venue='CAV2014',
+               abstract_url='http://link.springer.com/chapter/10.1007%2F978-3-319-08867-9_15',
+               download_url='http://multicore.doc.ic.ac.uk/tools/GPUVerify/CAV2014/downloads/paper.pdf'
+              )
+}}
 
 {% endblock %}
